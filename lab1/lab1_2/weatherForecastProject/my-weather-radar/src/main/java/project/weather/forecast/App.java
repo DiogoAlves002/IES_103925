@@ -5,14 +5,25 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 import project.weather.forecast.IpmaCityForecast; //may need to adapt package name
 import project.weather.forecast.IpmaService;
 public class App 
 {
     
+
+    private static Logger logger = LogManager.getLogger(App.class);
     private static int CITY_ID_AVEIRO; //1010500 -> Aveiro
 
     public static void  main(String[] args ) {
+
+		logger.debug("Debug Message Logged !!!");
+		logger.info("Info Message Logged !!!");
+		logger.error("Error Message Logged !!!", new NullPointerException("NullError"));
+	    
         for (String arg : args){
             CITY_ID_AVEIRO = Integer.parseInt(arg);
         }
