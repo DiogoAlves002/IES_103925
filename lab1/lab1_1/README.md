@@ -1,1 +1,1 @@
-##Basic setupfor Java development
+#Basic setup for Java development
