@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 
@@ -23,6 +24,9 @@ public class User {
     @NotBlank(message = "Email is mandatory")
     private String email;
 
+    @NotNull(message = "Phone is mandatory")
+    private int phone;
+
     public long getId() {
         return id;
     }
@@ -33,6 +37,10 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+
+    public int getPhone() {
+        return phone;
     }
 
     public void setId(long id) {
@@ -47,9 +55,12 @@ public class User {
         this.email = email;
     }
 
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + ", email=" + email + '}';
+        return "User{" + "id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + '}';
     }
 }
