@@ -1,6 +1,12 @@
 # Notes taken while completing this lab
 
 
+## Spring boot
+
+easier way to run an application
+`./mvnw spring-boot:run`
+
+
 ## Jakarta Persistence API *JPA*
 
 Persistence means any mechanism by which Java objects outlive the application process that created them.
