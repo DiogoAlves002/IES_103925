@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ex2.lab3.IES.Multilayerapplications.exception.ResourceNotFoundException;
@@ -29,8 +30,13 @@ public class EmployeeController {
     private EmployeeRepository employeeRepository;
 
     @GetMapping("/employees")
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
+    public List<Employee> getAllEmployees(@RequestParam(required = false) String email) {
+        if (email == null){
+            return employeeRepository.findAll();
+        }
+        else{
+            return employeeRepository.findByEmailId(email);
+        }
     }
 
     @GetMapping("/employees/{id}")
